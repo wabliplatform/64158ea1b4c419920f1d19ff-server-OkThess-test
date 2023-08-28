@@ -1,0 +1,619 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: lampralexandros@gmail.com
+  description: This is a sample openApi document
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: https://wabli.netlify.app/
+  title: TempApi
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+- description: wabli-bme-2
+  url: https://83.212.100.226:4002/v1
+security:
+- {}
+tags:
+- description: not yet ready
+  name: deploys
+- description: not yet ready
+  name: contact
+- description: not yet ready
+  name: movies
+- description: not yet ready
+  name: task
+paths:
+  /deploys:
+    post:
+      operationId: createdeploys
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deploys'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deploys'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - deploys
+      x-eov-operation-handler: controllers/DeploysController
+  /deploys/{deploysId}:
+    delete:
+      operationId: deletedeploys
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: deploysId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - deploys
+      x-eov-operation-handler: controllers/DeploysController
+    get:
+      operationId: getdeploys
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: deploysId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deploys'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - deploys
+      x-eov-operation-handler: controllers/DeploysController
+    put:
+      operationId: updatedeploys
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: deploysId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deploys'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deploys'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - deploys
+      x-eov-operation-handler: controllers/DeploysController
+  /deploys/getAll:
+    get:
+      operationId: getAlldeploys
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/deploys'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - deploys
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/DeploysController
+  /deploys/getByParams:
+    get:
+      operationId: getByParamsdeploys
+      parameters:
+      - description: the query based on which the search is performed
+        explode: true
+        in: query
+        name: filter
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/deploys'
+                type: array
+          description: successful operation
+      summary: Get all the data based on user query
+      tags:
+      - deploys
+      x-method-get-by-params: "true"
+      x-eov-operation-handler: controllers/DeploysController
+  /contact:
+    post:
+      operationId: createcontact
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contact'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contact'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - contact
+      x-eov-operation-handler: controllers/ContactController
+  /contact/{contactId}:
+    delete:
+      operationId: deletecontact
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - contact
+      x-eov-operation-handler: controllers/ContactController
+    get:
+      operationId: getcontact
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contact'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - contact
+      x-eov-operation-handler: controllers/ContactController
+    put:
+      operationId: updatecontact
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: contactId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contact'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contact'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - contact
+      x-eov-operation-handler: controllers/ContactController
+  /contact/getAll:
+    get:
+      operationId: getAllcontact
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/contact'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - contact
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/ContactController
+  /contact/getByParams:
+    get:
+      operationId: getByParamscontact
+      parameters:
+      - description: the query based on which the search is performed
+        explode: true
+        in: query
+        name: filter
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/contact'
+                type: array
+          description: successful operation
+      summary: Get all the data based on user query
+      tags:
+      - contact
+      x-method-get-by-params: "true"
+      x-eov-operation-handler: controllers/ContactController
+  /movies:
+    post:
+      operationId: createmovies
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/movies'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/movies'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - movies
+      x-eov-operation-handler: controllers/MoviesController
+  /movies/{moviesId}:
+    delete:
+      operationId: deletemovies
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: moviesId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - movies
+      x-eov-operation-handler: controllers/MoviesController
+    get:
+      operationId: getmovies
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: moviesId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/movies'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - movies
+      x-eov-operation-handler: controllers/MoviesController
+    put:
+      operationId: updatemovies
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: moviesId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/movies'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/movies'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - movies
+      x-eov-operation-handler: controllers/MoviesController
+  /movies/getAll:
+    get:
+      operationId: getAllmovies
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/movies'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - movies
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/MoviesController
+  /movies/getByParams:
+    get:
+      operationId: getByParamsmovies
+      parameters:
+      - description: the query based on which the search is performed
+        explode: true
+        in: query
+        name: filter
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/movies'
+                type: array
+          description: successful operation
+      summary: Get all the data based on user query
+      tags:
+      - movies
+      x-method-get-by-params: "true"
+      x-eov-operation-handler: controllers/MoviesController
+  /task:
+    post:
+      operationId: createtask
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/task'
+        description: data to be created
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/task'
+          description: successful operation
+      summary: Creates the data
+      tags:
+      - task
+      x-eov-operation-handler: controllers/TaskController
+  /task/{taskId}:
+    delete:
+      operationId: deletetask
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: taskId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: successful operation
+      summary: Delete the element
+      tags:
+      - task
+      x-eov-operation-handler: controllers/TaskController
+    get:
+      operationId: gettask
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: taskId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/task'
+          description: successful operation
+      summary: Get the element
+      tags:
+      - task
+      x-eov-operation-handler: controllers/TaskController
+    put:
+      operationId: updatetask
+      parameters:
+      - description: the Id parameter
+        explode: false
+        in: path
+        name: taskId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/task'
+        description: data to be updated
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/task'
+          description: successful operation
+      summary: Updates the element
+      tags:
+      - task
+      x-eov-operation-handler: controllers/TaskController
+  /task/getAll:
+    get:
+      operationId: getAlltask
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/task'
+                type: array
+          description: successful operation
+      summary: Get all the data
+      tags:
+      - task
+      x-method-getAll: "true"
+      x-eov-operation-handler: controllers/TaskController
+  /task/getByParams:
+    get:
+      operationId: getByParamstask
+      parameters:
+      - description: the query based on which the search is performed
+        explode: true
+        in: query
+        name: filter
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/task'
+                type: array
+          description: successful operation
+      summary: Get all the data based on user query
+      tags:
+      - task
+      x-method-get-by-params: "true"
+      x-eov-operation-handler: controllers/TaskController
+components:
+  schemas:
+    deploys:
+      example:
+        _id: _id
+        deploy: deploy
+      properties:
+        _id:
+          type: string
+        deploy:
+          type: string
+      required:
+      - deploy
+      type: object
+    contact:
+      example:
+        fullName: fullName
+        _id: _id
+      properties:
+        _id:
+          type: string
+        fullName:
+          type: string
+      required:
+      - fullName
+      type: object
+    movies:
+      example:
+        movieImg:
+          data: data
+          name: name
+        _id: _id
+      properties:
+        _id:
+          type: string
+        movieImg:
+          $ref: '#/components/schemas/movies_movieImg'
+      required:
+      - movieImg
+      type: object
+    task:
+      example:
+        _id: _id
+      properties:
+        _id:
+          type: string
+      type: object
+    movies_movieImg:
+      example:
+        data: data
+        name: name
+      properties:
+        data:
+          type: string
+        name:
+          type: string
+      type: object
+      x-isSchemaOnly: "true"
